@@ -1,4 +1,5 @@
-### How to run the app:
+### notes app
+- How to run the app 
     - ```cd``` into 'server' folder.
     - `npm i` to install all the reqiured packages.
     - run `db-migrate up todoapp` **(for this step you need to have 'db-migrate' and 'db-migrate-pg' installed globally)**.

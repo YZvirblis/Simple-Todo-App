@@ -6,7 +6,7 @@ const TodoController = () => {
   router.post("/create", createTodo);
   router.get("/gettodos", getAllTodos)
   router.put("/edit/:id", editTodo)
-  router.delete("/delete/:id", delteTodo)
+  router.delete("/delete/:id", deleteTodo)
   return router;
 };
 
@@ -35,18 +35,18 @@ const editTodo = async (
   next: NextFunction
 ) => {
     const {id} = request.params;
-    const {description} = request.body
-  const res = await handler.editTodo(id,description);
+    const {description, isDone} = request.body
+  const res = await handler.editTodo(id,description,isDone);
   response.json(res)
 };
 
-const delteTodo = async (
+const deleteTodo = async (
   request: Request,
   response: Response,
   next: NextFunction
 ) => {
     const {id} = request.params;
-  const res = await handler.delteTodo(id);
+  const res = await handler.deleteTodo(id);
   response.json(res)
 };
 

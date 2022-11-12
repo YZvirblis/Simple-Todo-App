@@ -1,7 +1,11 @@
 const pool = require("../../../db")
+import Todo from "../models/todo"
 
 const createTodo = async (description: any) => {
     try{
+        // CREATE DOCUMENT IN MONGO
+        await new Todo({description}).save()
+        // CREATE DOCUMENT IN POSTGRES
         const newTodo = await pool.query("INSERT INTO todo (description) VALUES($1) RETURNING *", [description])
         return newTodo.rows[0]
     }catch(err){
@@ -37,4 +41,3 @@ const delteTodo = async (id: any) => {
   };
   
   export { createTodo ,getAllTodos, editTodo , delteTodo};
-  

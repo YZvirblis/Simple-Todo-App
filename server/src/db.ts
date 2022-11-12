@@ -1,4 +1,4 @@
-const { Client, Pool } = require('pg')
+import { Pool } from 'pg'
 
 const pool = new Pool({
     user: "postgres",
@@ -6,11 +6,5 @@ const pool = new Pool({
     port: 5432,
     database: "todoapp"
 })
-// const db = client.connect({
-//     user: "postgres",
-//     host: "localhost",
-//     port: 5432,
-//     database: "todoapp"
-// })
 
-module.exports = pool
+export default pool
